@@ -1,0 +1,21 @@
+const db = require("./db");
+const bot = require("../telegram");
+
+const registrationAudit = (chatId, callBack) => {
+  db.query(
+    `SELECT * FROM users WHERE chatId = ${chatId} `,
+    function (err, result) {
+      if (result.length > 0) {
+        bot.sendMessage(chatId, "User already register", {
+          reply_markup: {
+            keyboard: [["Bitcoin"]],
+          },
+        });
+      } else {
+        callBack();
+      }
+    }
+  );
+};
+
+module.exports = { registrationAudit };

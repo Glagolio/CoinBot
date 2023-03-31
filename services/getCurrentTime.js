@@ -44,4 +44,4 @@ const getCurrentTime = (unixTime) => {
   };
 };
 
-module.exports = { getCurrentTime };
+module.exports = { getCurrentTime, getMonth };

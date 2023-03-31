@@ -7,6 +7,7 @@ const { coinMessage, spamMessage } = require("./services/messages");
 const { authAudit } = require("./db/authAudit");
 const { addUser } = require("./db/addUser");
 const { registrationAudit } = require("./db/registrationAudit");
+const { validateEmail, validatePassword } = require("./services/validation");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
@@ -52,12 +53,28 @@ bot.on("message", async (msg) => {
   const user = users[chatId];
   if (user) {
     if (!user.email) {
-      user.email = msg.text.toString().toLowerCase();
+      const email = msg.text.toString().toLowerCase();
+      const validate = validateEmail(email);
+      if (validate.error) {
+        return bot.sendMessage(
+          chatId,
+          `Wrong email, try real email: ${validate.error.message}`
+        );
+      }
+      user.email = email;
       bot.sendMessage(chatId, "Enter password");
       return;
     } else if (!user.password) {
+      const password = msg.text.toString();
+      const validate = validatePassword(password);
+      if (validate.error) {
+        return bot.sendMessage(
+          chatId,
+          `Something wrong with password: ${validate.error.message}`
+        );
+      }
       // bcrypt виконує функцію безпеки, щоб той хто має доступ до бази бачив лише захешований пароль
-      user.password = await bcrypt.hash(msg.text.toString().toLowerCase(), 10);
+      user.password = await bcrypt.hash(password, 10);
       addUser(user, chatId);
       delete users[chatId];
       return;

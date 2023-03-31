@@ -14,7 +14,7 @@ const addUser = (user, chatId) => {
       } else {
         bot.sendMessage(chatId, "You are registered!", {
           reply_markup: {
-            keyboard: [["Bitcoin"]],
+            keyboard: [["BTC", "ETH"]],
           },
         });
       }

@@ -8,7 +8,7 @@ const registrationAudit = (chatId, callBack) => {
       if (result.length > 0) {
         bot.sendMessage(chatId, "User is already registered", {
           reply_markup: {
-            keyboard: [["Bitcoin"]],
+            keyboard: [["BTC", "ETH"]],
           },
         });
       } else {

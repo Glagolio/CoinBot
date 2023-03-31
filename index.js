@@ -10,7 +10,7 @@ const { registrationAudit } = require("./db/registrationAudit");
 const { validateEmail, validatePassword } = require("./services/validation");
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3040;
 const users = {};
 
 bot.onText(/\/start/, (msg) => {
@@ -18,7 +18,7 @@ bot.onText(/\/start/, (msg) => {
   authAudit(chatId, () => {
     bot.sendMessage(chatId, "Welcome back", {
       reply_markup: {
-        keyboard: [["Bitcoin"]],
+        keyboard: [["BTC", "ETH"]],
       },
     });
     return;
@@ -58,7 +58,7 @@ bot.on("message", async (msg) => {
       if (validate.error) {
         return bot.sendMessage(
           chatId,
-          `Wrong email, try real email: ${validate.error.message}`
+          "Wrong email, try real email(email is not valid)"
         );
       }
       user.email = email;
@@ -70,7 +70,7 @@ bot.on("message", async (msg) => {
       if (validate.error) {
         return bot.sendMessage(
           chatId,
-          `Something wrong with password: ${validate.error.message}`
+          "Something wrong with password(not valid)"
         );
       }
       // bcrypt виконує функцію безпеки, щоб той хто має доступ до бази бачив лише захешований пароль
@@ -81,9 +81,13 @@ bot.on("message", async (msg) => {
     }
   }
 
-  if (msg.text.toString().toLowerCase().indexOf("bitcoin") === 0) {
+  if (
+    msg.text.toString().toLowerCase().indexOf("btc") === 0 ||
+    msg.text.toString().toLowerCase().indexOf("eth") === 0
+  ) {
+    const coin = msg.text.toString();
     authAudit(chatId, () => {
-      coinMessage(chatId);
+      coinMessage(chatId, coin);
       return;
     });
   }

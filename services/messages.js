@@ -2,13 +2,13 @@ const { getData } = require("./getData");
 const { getCurrentTime } = require("./getCurrentTime");
 const bot = require("../telegram");
 
-const coinMessage = (chatId) => {
-  getData().then((res) => {
+const coinMessage = (chatId, coin) => {
+  getData(coin).then((res) => {
     const rate = res.rate.toFixed(2);
     const { month, day, year, minutes, hours } = getCurrentTime(res.time);
     bot.sendMessage(
       chatId,
-      `<b>BITCOIN: ${rate}$</b> \n <pre>Last update: ${hours}:${
+      `<b>${coin}: ${rate}$</b> \n <pre>Last update: ${hours}:${
         minutes < 10 ? "0" + minutes : minutes
       } ${day} ${month} ${year}</pre>`,
       {
@@ -20,7 +20,7 @@ const coinMessage = (chatId) => {
 
 // Розилка винесена в окрему функцію, оскільки в цьому випадку я роблю 1 запит на API і розислаю усім результат.
 const spamMessage = (result) => {
-  getData().then((res) => {
+  getData("BTC").then((res) => {
     const rate = res.rate.toFixed(2);
     const { month, day, year, minutes, hours } = getCurrentTime(res.time);
 

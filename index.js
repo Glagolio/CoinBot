@@ -102,6 +102,18 @@ app.use("/mailing", (req, res, next) => {
   res.status(200).json("all good");
 });
 
+app.use((_, res) => res.status(404).json({ message: "Not found" }));
+
+app.use((err, req, res, next) => {
+  if (err.status) {
+    console.log(err.status, "-", err.message);
+    return res.status(err.status).json({ message: err.message });
+  }
+
+  console.error("Unhandled error:", err.message, "| Stack:", err.stack);
+  return res.status(500).json({ message: "Internal server error" });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running. Use our API on port: ${PORT}`);
 });

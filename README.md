@@ -3,7 +3,7 @@
 ## Етапи розгортування бота.
 
 - Знайдіть в телеграмі BotFather і виконуючи його інструкції створіть свого бота, та отримайте token, який нам знадобиться далі.
-  ![Screenshot-bot] (https://github.com/Glagolio/CoinBot/blob/main/assets/bot.png)
+  <img src='https://github.com/Glagolio/CoinBot/blob/main/assets/bot.png'>
 
 - На зручному для Вас сервісі створіть MySQL базу.
   Створивши виконайте цю команду, щоб створити таблицю.
@@ -24,7 +24,7 @@ CONSTRAINT users_PK PRIMARY KEY (id) );
 
 - Запускати бота ми будемо на сервісі heroku.
   Для цього заходимо на їх сайт і встановлюємо локально heroku згідно інструкції:
-  ![Screen-download] (https://github.com/Glagolio/CoinBot/blob/main/assets/download.png)
+  <img src='https://github.com/Glagolio/CoinBot/blob/main/assets/download.png'>
 
 - Відкрийте термінал в папці з нашим проектом та виконайте наступні команди:
   heroku create
@@ -33,7 +33,7 @@ CONSTRAINT users_PK PRIMARY KEY (id) );
 
 - По закінченню, коли проект буде задеплоін на сервіс heroku необхідно ввести ключи, які будуть давати доступ до бази, бота, тощо.
   Для цього в налаштуванні додатку на heroku треба знайти розділ Config Vars
-  ![Screen-keys] (<img src='https://github.com/Glagolio/CoinBot/blob/main/assets/keys.png'>)
+  <img src='https://github.com/Glagolio/CoinBot/blob/main/assets/keys.png'>
 
 В проекті використовуються такі ключи
 BOT_KEY=ТОКЕН вашого боту

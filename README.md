@@ -9,12 +9,12 @@
 - На зручному для Вас сервісі створіть MySQL базу.
   Створивши виконайте цю команду, щоб створити таблицю.
 
-# `CREATE TABLE IF NOT EXISTS users`
-# `( id INT UNSIGNED AUTO_INCREMENT NOT NULL,` 
-# `email VARCHAR(50) NOT NULL,`
-# `password VARCHAR(60) NOT NULL,`  
-# `chatId VARCHAR(50) NOT NULL,`
-# `CONSTRAINT users_PK PRIMARY KEY (id) );`
+##### `CREATE TABLE IF NOT EXISTS users`
+##### `( id INT UNSIGNED AUTO_INCREMENT NOT NULL,` 
+##### `email VARCHAR(50) NOT NULL,`
+##### `password VARCHAR(60) NOT NULL,`  
+##### `chatId VARCHAR(50) NOT NULL,`
+##### `CONSTRAINT users_PK PRIMARY KEY (id) );`
 
 - Додаток використовує в якості API сервіс https://www.coinapi.io/
   Тому переходимо за посиланням та реєструємось, потім на вашу пошту отримаєте ключ доступа, який нам знадобиться пізніше.

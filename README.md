@@ -9,27 +9,27 @@
 - На зручному для Вас сервісі створіть MySQL базу.
   Створивши виконайте цю команду, щоб створити таблицю.
 
-CREATE TABLE IF NOT EXISTS users
-( id INT UNSIGNED AUTO_INCREMENT NOT NULL,  
-email VARCHAR(50) NOT NULL,  
-password VARCHAR(60) NOT NULL,  
-chatId VARCHAR(50) NOT NULL,  
-CONSTRAINT users_PK PRIMARY KEY (id) );
+### `CREATE TABLE IF NOT EXISTS users`
+### `( id INT UNSIGNED AUTO_INCREMENT NOT NULL,` 
+### `email VARCHAR(50) NOT NULL,`
+### `password VARCHAR(60) NOT NULL,`  
+### `chatId VARCHAR(50) NOT NULL,`
+### `CONSTRAINT users_PK PRIMARY KEY (id) );`
 
 - Додаток використовує в якості API сервіс https://www.coinapi.io/
   Тому переходимо за посиланням та реєструємось, потім на вашу пошту отримаєте ключ доступа, який нам знадобиться пізніше.
 
 - Склонуйте цей репозиторій собі локально.
   Для цього оберіть папку, відкрийте термінал та виконайте команду <br>
-  git clone https://github.com/Glagolio/CoinBot.git
+  ### `git clone https://github.com/Glagolio/CoinBot.git`
 
 - Запускати бота ми будемо на сервісі heroku.
   Для цього заходимо на їх сайт і встановлюємо локально heroku згідно інструкції:
   <img src='https://github.com/Glagolio/CoinBot/blob/main/assets/download.png'>
 
 - Відкрийте термінал в папці з нашим проектом та виконайте наступні команди: <br>
-  heroku create <br>
-  git push heroku main <br>
+  ### `heroku create` <br>
+ ### `git push heroku main` <br>
   В процессі виконання heroku може вимагати авторизації та підтвердження платіжної карти(все виконуйте)
 
 - По закінченню, коли проект буде задеплоін на сервіс heroku необхідно ввести ключи, які будуть давати доступ до бази, бота, тощо.

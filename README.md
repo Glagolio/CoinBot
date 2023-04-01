@@ -33,7 +33,7 @@ CONSTRAINT users_PK PRIMARY KEY (id) );
 
 - По закінченню, коли проект буде задеплоін на сервіс heroku необхідно ввести ключи, які будуть давати доступ до бази, бота, тощо.
   Для цього в налаштуванні додатку на heroku треба знайти розділ Config Vars
-  ![Screen-keys] (https://github.com/Glagolio/CoinBot/blob/main/assets/keys.png)
+  ![Screen-keys] (<img src='https://github.com/Glagolio/CoinBot/blob/main/assets/keys.png'>)
 
 В проекті використовуються такі ключи
 BOT_KEY=ТОКЕН вашого боту

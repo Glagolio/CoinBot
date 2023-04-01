@@ -24,7 +24,7 @@ CONSTRAINT users_PK PRIMARY KEY (id) );
 
 - Запускати бота ми будемо на сервісі heroku.
   Для цього заходимо на їх сайт і встановлюємо локально heroku згідно інструкції:
-  ![SCREENSHOT] (./assets/download.png)
+  ![SCREENSHOT] (https://github.com/Glagolio/CoinBot/blob/main/assets/bot.png)
 
 - Відкрийте термінал в папці з нашим проектом та виконайте наступні команди:
   heroku create
